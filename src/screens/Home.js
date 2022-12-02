@@ -13,13 +13,13 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={{ flex: 1, padding: 24 }}>
+    <View style={styles.container}>
       <FlatList
         data={data}
         keyExtractor={({ id }) => id}
         renderItem={({ item }) => (
-          <View style={{ padding: 5 }}>
-            <Text style={{ fontWeight: "bold", marginBottom: 5 }}>{item.name}</Text>
+          <View style={styles.item}>
+            <Text style={styles.companyName}>{item.name}</Text>
             <Text>Company size: {item.company_size}</Text>
             <Text>Company type: {item.company_type}</Text>
             <Text>Founded: {item.founded}</Text>
@@ -36,4 +36,17 @@ const Home = () => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: "#FFFFFF"
+  },
+  item: {
+    paddingVertical: 5
+  },
+  companyName: {
+    fontWeight: "bold",
+    marginBottom: 5
+  }
+});
