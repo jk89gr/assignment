@@ -1,10 +1,13 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { getCompanies } from "../api/index"
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
 
   const [data, setData] = useState([]);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     getCompanies()
@@ -27,6 +30,19 @@ const Home = () => {
             <Text>Location: {item.located_at}</Text>
             <Text>ID: {item.id}</Text>
             <Text>Image URL: {item.image_url}</Text>
+            <Button
+              onPress={() => navigation.navigate("Settings", {
+                id: item.id,
+                name: item.name,
+                company_size: item.company_size,
+                company_type: item.company_type,
+                founded: item.founded,
+                website: item.website,
+                located_at: item.located_at,
+                image_url: item.image_url
+              })}
+              title="Edit"
+            />
           </View>
         )}
       />
