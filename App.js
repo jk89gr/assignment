@@ -7,15 +7,7 @@ import BottomTabNavigator from './src/navigations/BottomTabNavigator';
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <SafeAreaView
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
-        <Text>Inop</Text> */}
-        <BottomTabNavigator />
-      {/* </SafeAreaView> */}
+      <BottomTabNavigator />
     </NavigationContainer>
   );
 }
